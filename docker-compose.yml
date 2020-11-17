@@ -1,0 +1,13 @@
+version: "3.2"
+
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: ./container/Dockerfile
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./application:/main
+    restart: unless-stopped
+    command: sh /jupyter_run.sh
